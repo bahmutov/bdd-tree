@@ -1,0 +1,33 @@
+{
+  "name": "bdd-tree",
+  "version": "0.0.0",
+  "description": "Transforms BDD test source into syntax tree",
+  "main": "bdd-tree.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha -R spec test/*-spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahmutov/bdd-tree.git"
+  },
+  "keywords": [
+    "bdd",
+    "jasmine",
+    "mocha",
+    "test",
+    "source",
+    "transform",
+    "syntax",
+    "tree"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/bdd-tree/issues"
+  },
+  "homepage": "https://github.com/bahmutov/bdd-tree",
+  "devDependencies": {
+    "lazy-ass": "0.5.1",
+    "mocha": "1.21.4"
+  }
+}
