@@ -29,5 +29,8 @@
   "devDependencies": {
     "lazy-ass": "0.5.1",
     "mocha": "1.21.4"
+  },
+  "dependencies": {
+    "falafel": "0.3.1"
   }
 }
