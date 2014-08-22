@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/bahmutov/bdd-tree",
   "devDependencies": {
-    "lazy-ass": "0.5.1",
     "mocha": "1.21.4"
   },
   "dependencies": {
+    "lazy-ass": "0.5.1",
     "falafel": "0.3.1"
   }
 }
