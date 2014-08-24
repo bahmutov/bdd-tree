@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/bahmutov/bdd-tree",
   "devDependencies": {
+    "check-types": "1.3.2",
     "mocha": "1.21.4"
   },
   "dependencies": {

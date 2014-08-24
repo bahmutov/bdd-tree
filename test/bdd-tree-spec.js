@@ -1,5 +1,6 @@
 var toTree = require('../bdd-tree');
 require('lazy-ass');
+var check = require('check-types');
 
 describe('bdd-tree', function () {
   it('is a function', function () {
@@ -20,5 +21,11 @@ describe('bdd-tree', function () {
     // console.log(describes)
     la(describes.length === 1); // in this file
     la(describes[0].name === 'bdd-tree');
+  });
+
+  it('has valid source code', function () {
+    var describes = toTree(src);
+    la(check.unemptyString(describes[0].code));
+    // console.log(describes[0].code);
   });
 });
