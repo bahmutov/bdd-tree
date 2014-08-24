@@ -2,6 +2,21 @@
 
 > Transforms BDD source into syntax tree
 
+[![NPM][bdd-tree-icon] ][bdd-tree-url]
+
+[![Build status][bdd-tree-ci-image] ][bdd-tree-ci-url]
+[![dependencies][bdd-tree-dependencies-image] ][bdd-tree-dependencies-url]
+[![devdependencies][bdd-tree-devdependencies-image] ][bdd-tree-devdependencies-url]
+
+[bdd-tree-icon]: https://nodei.co/npm/bdd-tree.png?downloads=true
+[bdd-tree-url]: https://npmjs.org/package/bdd-tree
+[bdd-tree-ci-image]: https://travis-ci.org/bahmutov/bdd-tree.png?branch=master
+[bdd-tree-ci-url]: https://travis-ci.org/bahmutov/bdd-tree
+[bdd-tree-dependencies-image]: https://david-dm.org/bahmutov/bdd-tree.png
+[bdd-tree-dependencies-url]: https://david-dm.org/bahmutov/bdd-tree
+[bdd-tree-devdependencies-image]: https://david-dm.org/bahmutov/bdd-tree/dev-status.png
+[bdd-tree-devdependencies-url]: https://david-dm.org/bahmutov/bdd-tree#info=devDependencies
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014

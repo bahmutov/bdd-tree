@@ -1,6 +1,6 @@
 {
   "name": "bdd-tree",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Transforms BDD test source into syntax tree",
   "main": "bdd-tree.js",
   "scripts": {
@@ -28,10 +28,12 @@
   "homepage": "https://github.com/bahmutov/bdd-tree",
   "devDependencies": {
     "check-types": "1.3.2",
-    "mocha": "1.21.4"
+    "mocha": "1.21.4",
+    "pre-git": "0.0.16"
   },
   "dependencies": {
     "lazy-ass": "0.5.1",
     "falafel": "0.3.1"
-  }
+  },
+  "pre-commit": "npm test"
 }
