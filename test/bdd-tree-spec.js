@@ -36,4 +36,14 @@ describe('bdd-tree', function () {
     la(Array.isArray(its));
     la(its.length > 3);
   });
+
+  it('each it has name', function () {
+    var describes = toTree(src);
+    // console.log(describes[0]);
+    var its = describes[0].its;
+    function hasName(it) {
+      return check.unemptyString(it.name);
+    }
+    la(its.every(hasName));
+  });
 });
