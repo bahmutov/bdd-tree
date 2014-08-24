@@ -1,6 +1,6 @@
 {
   "name": "bdd-tree",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Transforms BDD test source into syntax tree",
   "main": "bdd-tree.js",
   "scripts": {
