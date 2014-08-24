@@ -23,9 +23,17 @@ describe('bdd-tree', function () {
     la(describes[0].name === 'bdd-tree');
   });
 
-  it('has valid source code', function () {
+  it('describe has valid source code', function () {
     var describes = toTree(src);
     la(check.unemptyString(describes[0].code));
     // console.log(describes[0].code);
+  });
+
+  it('detects it blocks', function () {
+    var describes = toTree(src);
+    // console.log(describes[0]);
+    var its = describes[0].its;
+    la(Array.isArray(its));
+    la(its.length > 3);
   });
 });

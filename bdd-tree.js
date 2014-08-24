@@ -2,23 +2,32 @@ var falafel = require('falafel');
 require('lazy-ass');
 
 var describes = [];
+var its = [];
+var currentDescribe;
 
-function isDescribeBlockStatement(node) {
+function isBddBlock(name, node) {
   /*
-    Typical 'describe' block
+    Typical 'describe' (or 'it') block
     describe('foo', function fooBlock() {
       ...
     });
     when node is BlockStatement, then we go up:
       functional declaration, call statement with
       callee name equal to 'describe'
+
+    return name
   */
+  la(name === 'describe' || name === 'it', 'invalid name', name);
   return node.type === 'BlockStatement' &&
     node.parent &&
     node.parent.parent &&
     node.parent.parent.callee &&
-    node.parent.parent.callee.name === 'describe';
+    node.parent.parent.callee.name === name &&
+    node.parent.parent.arguments[0].value;
 }
+
+var isDescribe = isBddBlock.bind(null, 'describe');
+var isIt = isBddBlock.bind(null, 'it');
 
 function stripFirstAndLastBraces(src) {
   return src.replace(/^\s*\{\n/, '')
@@ -32,13 +41,28 @@ function toTree(node) {
     // console.log(node.source())
     // console.log('parent', node.parent.parent.callee.name)
     // console.log(node.parent.parent);
-    if (isDescribeBlockStatement(node)) {
-      var describeName = node.parent.parent.arguments[0].value;
+    var callName;
+    if (callName = isDescribe(node)) {
+
       // console.log(node.parent.parent);
       var src = node.source();
       src = stripFirstAndLastBraces(src);
-      describes.push({
-        name: describeName,
+
+      var currentDescribe = {
+        name: callName,
+        code: src,
+        its: its
+      };
+      describes.push(currentDescribe);
+
+      its = [];
+    } else if (callName = isIt(node)) {
+      // console.log('found it', callName);
+      var src = node.source();
+      src = stripFirstAndLastBraces(src);
+
+      its.push({
+        name: callName,
         code: src
       });
     }
@@ -47,9 +71,19 @@ function toTree(node) {
 
 function bddToTree(source) {
   describes = [];
+  its = [];
 
   falafel(source, toTree);
 
+  if (its.length) {
+    // any remaining unit tests will be part of
+    // anonymous describe
+    describes.push({
+      name: '',
+      code: '',
+      its: its
+    });
+  }
   return describes;
 }
 
